@@ -299,9 +299,9 @@ export default function MultilingualChatbot() {
         tooltip={currentTranslations.needHelp}
       />
 
-      <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] bg-transparent">
+      <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] bg-transparent rounded-xl shadow-2xl">
         <Card
-          className="flex flex-col h-[600px] max-h-[80vh] shadow-none border-0 overflow-hidden rounded-xl bg-white"
+          className="flex flex-col h-[600px] max-h-[80vh]  border-0 overflow-hidden rounded-xl "
           style={{ boxShadow: "none" }}
         >
           <div className="flex items-center justify-between p-4 bg-transparent">
