@@ -93,6 +93,33 @@ body {
   }
 }
 
+/* ✅ WIDGET MODE STYLES */
+.widget-body {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Check if we're in embedded mode */
+@media (max-width: 450px) {
+  .widget-body {
+    background: transparent !important;
+  }
+}
+
+/* When embedded as widget */
+body.widget-mode {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body.widget-mode html {
+  background: transparent !important;
+}
+
 @keyframes shimmer {
   0% {
     transform: translateX(-100%) skewX(-12deg);
