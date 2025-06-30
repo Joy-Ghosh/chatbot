@@ -15,12 +15,42 @@ export function ChatLauncher({ onClick, hasNewMessages, tooltip }: ChatLauncherP
       <Button
         onClick={onClick}
         size="lg"
-        className="relative h-14 w-14 rounded-full bg-emerald-500 hover:bg-emerald-600 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+        className="relative h-16 w-16 rounded-full bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 hover:from-emerald-500 hover:via-emerald-600 hover:to-emerald-700 hover:scale-110 transition-all duration-300 shadow-xl hover:shadow-2xl group overflow-hidden"
         aria-label="Open Chat Support"
         title={tooltip}
       >
-        <MessageCircle className="h-6 w-6 text-white" />
-        {hasNewMessages && <div className="absolute -top-1 -right-1 h-4 w-4 bg-amber-400 rounded-full animate-pulse" />}
+        {/* Animated background pulse */}
+        <div className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-20" />
+
+        {/* Shimmer effect */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 group-hover:animate-shimmer" />
+
+        {/* Main icon */}
+        <MessageCircle className="h-7 w-7 text-white relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+
+        {/* Floating particles */}
+        <div
+          className="absolute top-2 right-2 w-1 h-1 bg-white/60 rounded-full animate-bounce"
+          style={{ animationDelay: "0s" }}
+        />
+        <div
+          className="absolute top-4 left-3 w-1 h-1 bg-white/40 rounded-full animate-bounce"
+          style={{ animationDelay: "0.5s" }}
+        />
+        <div
+          className="absolute bottom-3 right-4 w-1 h-1 bg-white/50 rounded-full animate-bounce"
+          style={{ animationDelay: "1s" }}
+        />
+
+        {/* Enhanced notification badge */}
+        {hasNewMessages && (
+          <div className="absolute -top-2 -right-2 h-6 w-6 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full animate-pulse shadow-lg border-2 border-white flex items-center justify-center">
+            <div className="w-2 h-2 bg-white rounded-full animate-ping" />
+          </div>
+        )}
+
+        {/* Ripple effect on hover */}
+        <div className="absolute inset-0 rounded-full bg-white/10 scale-0 group-hover:scale-100 transition-transform duration-500" />
       </Button>
     </div>
   )
