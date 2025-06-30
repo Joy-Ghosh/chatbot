@@ -299,7 +299,7 @@ export default function MultilingualChatbot() {
         tooltip={currentTranslations.needHelp}
       />
 
-      <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] bg-transparent rounded-xl shadow-2xl">
+      <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] bg-transparent rounded-xl shadow-xl">
         <Card
           className="flex flex-col h-[600px] max-h-[80vh]  border-0 overflow-hidden rounded-xl "
           style={{ boxShadow: "none" }}
