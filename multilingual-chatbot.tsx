@@ -720,7 +720,7 @@ export default function MultilingualChatbot() {
       />
 
       <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] animate-in slide-in-from-bottom-4 duration-300 bg-transparent"  >
-        <Card className="flex flex-col h-[600px] max-h-[80vh] shadow-none border-0 overflow-hidden rounded-xl bg-white">
+        <Card className="flex flex-col h-[600px] max-h-[80vh] shadow-none border-0 overflow-hidden rounded-xl ">
           {/* Header */}
           <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-3">
