@@ -93,31 +93,47 @@ body {
   }
 }
 
-/* ✅ WIDGET MODE STYLES */
-.widget-body {
-  background: transparent !important;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-/* Check if we're in embedded mode */
-@media (max-width: 450px) {
-  .widget-body {
-    background: transparent !important;
-  }
-}
-
-/* When embedded as widget */
+/* ✅ WIDGET MODE STYLES - COMPLETE TRANSPARENCY */
+html.widget-mode,
 body.widget-mode {
   background: transparent !important;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  min-height: auto !important;
+  height: auto !important;
 }
 
-body.widget-mode html {
+/* Force transparency for all elements in widget mode */
+.widget-mode * {
+  background-color: transparent !important;
+}
+
+/* Only the actual chat components should have backgrounds */
+.widget-mode .chat-card {
+  background: white !important;
+  background-color: white !important;
+}
+
+.widget-mode .dark .chat-card {
+  background: rgb(17 24 39) !important;
+  background-color: rgb(17 24 39) !important;
+}
+
+/* Widget container should be transparent */
+.widget-container {
   background: transparent !important;
+  background-color: transparent !important;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* Ensure the main page div is transparent in widget mode */
+.widget-mode .widget-container > div {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 @keyframes shimmer {

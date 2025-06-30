@@ -33,6 +33,7 @@ export default function MultilingualChatbot() {
   const [isConnectedToHuman, setIsConnectedToHuman] = useState(false)
   const [lastMessageTime, setLastMessageTime] = useState(0)
   const [inactivityTimer, setInactivityTimer] = useState<NodeJS.Timeout | null>(null)
+  const [isEmbedded, setIsEmbedded] = useState(false)
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -43,6 +44,12 @@ export default function MultilingualChatbot() {
 
   const currentQuestions =
     commonQuestions[chatState.currentLanguage.code as keyof typeof commonQuestions] || commonQuestions.en
+
+  // Check if embedded
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    setIsEmbedded(urlParams.get("embedded") === "true")
+  }, [])
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -355,8 +362,8 @@ export default function MultilingualChatbot() {
           hours:
             "எங்கள் வாடிக்கையாளர் சேவை இந்த அரட்டை மூலம் 24/7 கிடைக்கிறது. எங்கள் ஃபோன் ஆதரவு திங்கள்-வெள்ளி காலை 9 முதல் மாலை 6 வரை கிடைக்கிறது.",
           default: [
-            "உங்கள் செய்திக்கு நன்றி! நான் உதவ இங்கே இருக்கிறேன். உங்களுக்கு என்ன உதவி தேவை என்று சொல்ல முடியுமா?",
-            "நீங்கள் உதவி தேடுகிறீர்கள் என்று புரிகி��து. நான் உங்களுக்கு எப்படி உதவ முடியும் என்று பார்ப்போம்.",
+            "உங்கள் செய்திக்கு நன்ற���! நான் உதவ இங்கே இருக்கிறேன். உங்களுக்கு என்ன உதவி தேவை என்று சொல்ல முடியுமா?",
+            "நீங்கள் உதவி தேடுகிறீர்கள் என்று புரிகிறது. நான் உங்களுக்கு எப்படி உதவ முடியும் என்று பார்ப்போம்.",
             "அது ஒரு சிறந்த கேள்வி! உங்களுக்குத் தேவையான தகவலை வழங்க என்னை அனுமதிக்கவும்.",
             "இதைத் தீர்க்க உங்களுக்கு உதவ நான் இங்கே இருக்கிறேன். குறிப்பிட்ட பிரச்சினையைப் பற்றி மேலும் சொல்ல முடியுமா?",
           ],
@@ -644,7 +651,9 @@ export default function MultilingualChatbot() {
       />
 
       <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] animate-in slide-in-from-bottom-4 duration-300">
-        <Card className="flex flex-col h-[600px] max-h-[80vh] shadow-2xl border-0 overflow-hidden">
+        <Card
+          className={`flex flex-col h-[600px] max-h-[80vh] shadow-2xl border-0 overflow-hidden chat-card ${isEmbedded ? "bg-white dark:bg-gray-900" : ""}`}
+        >
           {/* Header */}
           <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-3">
